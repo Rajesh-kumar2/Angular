@@ -1,0 +1,5 @@
+<h3>Selected Author's Quote</h3>
+<div>
+    <textarea class="padtop" readonly *ngIf="selectedAuthor">{{selectedAuthor.quote}}</textarea>
+    <button class="btn btn-primary" (click)=get()>Get Quote</button>
+</div>
