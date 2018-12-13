@@ -1,0 +1,40 @@
+{
+  "name": "hello_angular",
+  "version": "1.0.0",
+  "description": "Hello Angular Application",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "rimraf dist && webpack --config ./config/webpack.prod.js --mode production"
+  },
+  "author": "Manish Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "6.1.6",
+    "@angular/compiler": "6.1.6",
+    "@angular/core": "6.1.6",
+    "@angular/platform-browser": "6.1.6",
+    "@angular/platform-browser-dynamic": "6.1.6",
+    "bootstrap": "3.3.7",
+    "core-js": "2.5.7",
+    "jquery": "3.3.1",
+    "rxjs": "6.3.1",
+    "zone.js": "0.8.26"
+  },
+  "devDependencies": {
+    "@types/node": "8.10.29",
+    "angular2-template-loader": "0.6.2",
+    "awesome-typescript-loader": "5.2.0",
+    "css-loader": "1.0.0",
+    "file-loader": "2.0.0",
+    "html-loader": "0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "rimraf": "2.6.2",
+    "style-loader": "0.23.0",
+    "typescript": "2.7.2",
+    "webpack": "4.17.2",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.7",
+    "webpack-merge": "4.1.4"
+  }
+}
