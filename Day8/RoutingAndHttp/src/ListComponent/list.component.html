@@ -1,0 +1,8 @@
+<h3>Author's List</h3>
+<div class="options">
+    <a routerLink="/quote" class="{{isSelected(author) && 'selected' || ''}}" *ngFor="let author of list" (click)=selectAuthor(author)>{{author.name}}</a>
+</div>
+<br>
+<div class="options">
+    <a [routerLink]="['/quote',author.name]" class="{{isSelected(author) && 'selected' || ''}}" *ngFor="let author of list" (click)=selectAuthor(author)>{{author.name}}</a>
+</div>

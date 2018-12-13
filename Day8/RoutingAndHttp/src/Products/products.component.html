@@ -1,0 +1,13 @@
+<div class="row">
+        <h2 class="text-info">Products Component</h2>
+        <div>
+            <div class="graybox">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let product of productsList">
+                        <a [routerLink]="[product.id]">{{product.name}}</a>
+                    </li>
+                </ul>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div> 
