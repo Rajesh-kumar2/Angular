@@ -1,0 +1,461 @@
+HTML 5 Tags
+what is DOM?
+
+
+article								aside
+audio								canvas(2D gRAPICS)
+datalist							details
+summary								embed
+figure(use as container				figcaption
+footer								header
+hgroup(multiple header)				keygen
+mark(highlighting)					meter
+nav									output(
+progess								ruby
+rt									rb
+section								video
+source(which video& Audio Player)	time
+wbr
+
+pls add when you use IE 8:
+  <!--[if lt IE 9]>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+	
+inline Tags:
+		mark,progress,meter
+		----------------------------
+HtMl 5 New Input types
+color					date			datetime
+date-local				email			file
+month					number			search
+range					tel				time
+url						
+
+-----
+caniuse.com -check for which browser supported bwhich not html 5 tags		
+--------------------------------------------------------------------
+Day 2
+New Global Attributes in html 5
+acceskey
+class					
+contenteditable(true|false)---paragrpgh editable
+draggable(true|false)---drag and drop use
+translate---
+dir(ltr | rtl |auto)
+id
+lang
+spellcheck(true|false)
+style
+tabindex
+title
+data-  --------when you add custom attrribute use prefix data-nameof attrribute		
+----------------------------------------------------------------------------
+New Form Attributes
+autocomplete(on|off)--off the page
+novalidate--validation not working 
+
+------------
+New Attributes For Input Types:
+autocomplete(on|off)
+autofocus--focusing text box
+form
+formaction
+formmethod
+formvalidate--no validation in show in form
+target="_blank"----show next tab 
+formtarget="_blank"---show next tab create new tab in browser
+formenctype
+height & width(type=image)
+list
+maxlength
+placeholder
+---------------
+validatin attribute
+min
+maxlength
+max
+pattern
+required
+
+------------------
+video tags
+----------------
+Day 3
+Ht 5 New Javascript API's
+
+contacts		selection
+SVG				canvas
+Media           Forms
+FileAPI			DragDropAPI
+Geolocation		WebWorkers
+Selector
+
+----------------
+Storage API'S
+LocalStorage
+SessionStorage
+WebSQLDB
+IndexedDB
+AppCache
+
+---------------
+Communication API'S
+XML HttpRequest(Level 2)
+ServerSentEvents
+WebSockets
+
+---Assignment
+ show your position using marker on googlemap(GeolocationAPI)
+ 
+ chrome --allow-file-access-from-files ----allow the file to run Cromebroweser
+----------------------------------------------
+Day 4:
+1)WebSQLDB
+2)WebStorage
+3)IndexedDB
+
+Webscoket = only one time connection needed. server send data till webscoket 
+not close unlike ajax call ajax call required connection required many time hits the server
+
+			
+	------------------------------------Javascript TRANING--------------------------------------------------------------------------------------------------------
+	mahesh sabnis + angular essentials download books
+Javascript =Framework,Libraries,UI's,Tools
+            Framework-Angular Js
+			Libraries-,React,Jquery-only for DOM start with $ is plugin,
+			Tools-Unit testing,Intengration testing,Karma for testing,
+			IsomarphicApp
+http:protocal for communication  supported files xml,json,text 	
+						
+ES6-Typescript,Highlevel JS,Dart
+
+read about Babble=tranpiler, Webpack=loader
+			
+------------------------Day 2--------------------------
+package.json =run cmd "npm init -y
+-Prototype=extended behaivour which is already created object
+-no overloading possible in Javascript but  possible using argument object
+
+url:one Drive -https://1drv.ms/f/s!AuCjRTzCu2zzhsp2_X4b5USI4rjLoQ
+
+------------------------------------------------------------Node JS Traning start here-------------------------------------------------------------------------------
+Day:1-
+module is import & export in JavaScript
+
+comman.js is module loader is synchronues.
+javascript is not object oriented language it is Functional Languge.
+Javascript Support only abstraction,encapusulation,inheritance.
+
+C#								Java						Javascript
+
+.Net FW
+CLR				
+
+
+REPL= REPL Promt
+Read Evaluvate,P
+
+*iniliaze only in constarutor in ES 5
+you not have more then one construtor ES5 Or ES6 -A Class may only one Construtor
+anything start with _(underscore) it shows Private In javascript. 
+Ex.1)_id,_name- private 
+2)this.id,this.name is public in javascript
+
+
+Create singleton logger change the 
+
+FileSystem Module: ReadFiles,CreateFiles,updateFile,DeleteFile,RenameFile
+EventEmitter
+
+-------------------------------------------------Bootstrap Traning-------------------------------------------------------------------------------------------------
+windows+R = %appdata% --is location of global installation 
+
+npm list -g --depth=0 //to check which package install our machine
+npm install express-generator //create express application
+go to where create folder an run cmd:express --view=pug myapp
+
+https://bootswatch.com //free thems available
+
+
+xs -- phone less than 768px;
+sm-- tablets 768px and Above
+md-- Destops 992px and above
+lg-- Large desktops 1200px and above
+
+-------------------------------------------Typescript Traning-----------------------------------------------------------------------------------------------------
+JavaScript --> Js Engine
+Typescript-->TSC-->JavaScript-->Js Engine
+Java/C#-->Javac/CSC-->Byte Code-->MSIL-->JVM/CLR-->Native(Assembly)-->O.S
+
+https://www.typescriptlang.org // official Site of Typescript
+
+tsconfig.json=
+"compilerOptions": {
+        "target": "es5",  /// target specify es5 , es6 so on
+        "module": "none",
+        "sourceMap": true /// for debugging ts file on browser
+		"noImplicitAny": true, // for implicitly define datatype i.e var data=10; explicitly define datatype i.e var data:number
+        "noEmitOnError": true  // not genrator Js File if Error comes in Ts File
+    }
+	
+Datatypes--
+1.number
+2.boolean
+3.any
+4.string
+5.	
+	
+var y; // undefined varible is defined but not iniliaze that is undefined
+x;//not defined
+let a; //1. block scoping
+const a=10; //1.const declare must iniliaze 2. once defined i can not reinilize 3.block scoping 
+
+anonymous-- funtion without name
+arrow Funtion-- function keyword not used
+function parameter is optional in javascript if you defined function with parameter
+function parameter is required in typescript if you defined function with parameter
+
+function cal(...args:number[])/// rest parameter && rest parameter always rest is array 
+{
+ var sum=0;
+ for(let i=0; i<args.length;i++){
+  sum +=args[i];
+ } return sum;
+} 
+
+console.log(cal());
+console.log(cal(1,2,3));
+
+var arr=[1,2,3,4,5];
+console.log(cal(...arr)); /// spread operator
+
+...// when they declare is rest parameter
+... //when they called is spared operator 
+
+=> (Lambda Funtion)--keep referance of this keyword
+
+arrow function --never create arrow function inside the class it is not good pratice because it is required more memory
+
+overloading in typescript-not to do this in typescript beacuse unnessary memory allocated but if you needed then Syntax is
+							function Hello(): void;
+							function Hello(n: string): void;
+
+convertion datatype-
+
+Type Assertion= only gives intilizance
+
+for of & For loop is same  only for of loop used in ES6 & Typescript
+for in loop -used in javascript
+
+npm init -y--for create package.json file
+
+core-js --(Just Like PolyFill) adding on application gives understanding ES6 feature to browser so that create for  Fire cmd (npm install --save core-js)
+
+Object Literal -shortcut 
+
+Enum doest have in javascript but in typescript have Enum		
+--------------------------------------------------------------------------------
+--AngularJS means = 1.0
+--Angular means = 2.0 and above
+--Reason for rewrite of AngularJS to Angular was performance issue because of unoptimized code.
+--Library
+    --Set of APIs which is targated to do one type of job. it helps us to write less code. It can be plugged anywhere
+      and with any Library. Code is not standarised. For existing code base libarry is better
+--Framework(FW) is set of APIs to write application(collection of Library). Gives pre build service(memory management
+        Exception handling etc). We follow the FW, we go thru the rules and regulations and foloow them.
+        FW gives us standarised code. Fw is rigid in nature.
+--d3.js for pi chart and graphs
+--if browser does not support certain feature use polifill Library
+--Jquery is build on top of document and xhr api. $ = document
+--Presentation logic is taken care by Angular, developer just need focus on data structing.
+--Angular helps you to extend HTML(you can create custom html tag for reusebility).
+--Composite UI pattern
+--Component is combination of UI(template), logic, Data and css. Angular Component can be used only with 
+    angular FW. But React component can be used anywhere.
+--Angular 6 has concept of angular element using which we can reuse angular component outside angular FW.
+--A browser can download only 3 files at a time from one server 
+
+--vendors file contains vendor(fw) files required for angular to work
+--outside WP config is default file
+--3 bundles r downloaded on browser (main.ts, vendor.ts and polyfills.ts)
+--WP works on import statement main -> file1->file2 etc
+--chunking means wp creates a separate file with duplicate js (i.e if a file is used by more than one file)
+--Context means scope in which js code run
+--In simple language Zone.js is a api or set of programs which is used by angular 2 to update the application view when any 
+	change occurred. A Zone is an execution context that persists across asynchronous task. for example:Events, XMLHttpRequests and Timers(setTimeout(), setInterval()) etc.
+--to start angular(load in m/y) angular need Rxjs and zone.js(these 2 is must) is requirement
+--NGZone is boundary under which angular runs
+--Decorators are the way to add metadata. (helps angular decide whether a class is componemt or module or pipe etc)
+--if we dont use Decorators angular will not be able to distinguise b/w diff classes
+--inside zone angular client is loaded and inside that angular built in apis and you apis.
+--zone js is developed by google to handle threading inside browser.
+--Using RxJs u can implement publisher and subscriber pattern in angular.
+--core-js is(polyfills) to support the app across browser
+--b4 installing @angular/core install Rxjs and zone js
+--official library of angular on npm is @angular/core
+--@angular/common contains apis common b/w browser and mobiles
+--@angular/platform-browser --package is used for browse environment
+--when the factories are generated on client side when we need it is called just in time compilation.
+--factories hepls to instantiate objects
+--AOT
+--@angular/platform-browser-dynamic contains libarary that takes care of JIT compilation, this creates 
+  factories for angular
+--webpack-merge helps to merge mulptiple webpack config file
+--for webpack webpack webpack-cli webpack-merge webpack-dev-server
+--How webpack works
+    --entry - which all files to look into and start reading import statement
+    --extensions - which all files is to reading
+    --loaders(to load diffrent file use loader like html-loader awesome-typescript-loader angular2-template-loader)
+    --awesome-typescript-loader knows how to load and compile ts file and give to webpack of bundling
+    --plugins
+    --optimization
+    --output
+    --html-webpack-plugin (is used to refer webpack bandles to needed html)
+    --rimraf to remove any file without asking any question
+    --devtool used for testing
+    --hot enable HMR (HMR(hot module reloading) will refresh the browser when the server restart(i.e where there is change in js file))
+--Components are like user control that is contains state, behavior, template(html) and css
+
+--declarations in ng modele tells which component to use and bootstrap tells which one to start
+--in dev evn dist folder is created in m/y bcoz many times it has to delete and create
+--cheap-module-eval-source-map- Generates source map for debugging.
+--Augury is a chrome extension used cheching state of Components.
+--css-loader convert bootstrap css into string and give it to webpack which keeps in vendor.ts file
+--style-loader convert string into style file on client side
+--mini-css-extract-plugin for separating the css file from js
+--optimize-css-assets-plugin for minifying css file(bcoz WP by default does not understand css it knows only js)
+--component bootstraping can be done only once
+--Module which bootstrap should load the browser module
+--Bootstrapping is done only in root module and this will bootstrap a single component.
+--Module is just a namespace i.e it acts as a container for components etc...Module is separation of concern for reuseability
+--View encapusulation:- including style(i.e css) in view(i.e html) so that component is reused
+--Element Inline style:- writing css in component template inlined with html
+--Template inline Style:- writing css in component template inside style tag.
+--by default viewEncapsulation is Emulated(encapsulation: viewEncapsulation.(none || emulated || native ||shadowDOM))
+--none: - in case of same css class name, class get overridden
+--emulated:- FW creates css style in head tag of html with an unique id for classes with same name(i.e no conflict)
+--natvie:- css style is created with every html tag in body
+--component inline style:- write the css in 'style' attribute of component.
+--External style is used with help of styleUrls attribute.
+--viewEncapsulation as ENUM makes sense only for styles written on same page.
+--css modules need to be configured in wp in order to avoid css class name conflict when using External
+  style. Then evaluate the class name in component using string literals ${}.
+--explore less and sass(.scss)
+---------------------------------------------
+--when html page is loaded on client browser, it get converted into JS object called document(DOM).
+    and every Element of html is converted into node(that is also object).
+--property binding is binding property of the component with html Elements property like innerHTML, value, textContent etc.
+--when the content on page is not editable on page use inner html.
+--Event binding - for click event use on-click=function or (click) and write that function in component.
+--[] bracket for property binding and () is used for event binding.
+--in Angular event is not passed automatically but if we handle event in js event is implicitly passed.
+--if we handle event in html we have to pass event explicitly
+--preventDefault() is used only on event object
+--$event - angular has created a wrapper over html event called $event
+--two way data-binding is only applicable to editable Element of html. by default it works on input event 
+--directive- it is a notaion to say angular to do something. there are 3 types of directive.
+    1) component is also a directive( directive which comes with UI)
+    2) structural directive which chages or modify the html like *ngIf, *ngSwitch, *ngFor (using @directive decorator we can create cutom structural directive)
+        all structural directive starts with * these are converted internally as ng-Template
+    3) behaivoural directive which changes the behaviour eg. ngModel
+--ngModel is a behaivoural directive (is used on editable event) can not be used on click
+    (click) banana binding [(ngModel)] banana in the box [innerHTML] box binding
+--ngModelOptions
+--property defined in component and used in templete is called explicit model.
+--property defined in templete and not in component but used is called implit binding
+--burr event is fired on press of tab key
+--change event is fired on modify and press of blurr key
+--input event is fired as soon as you start typing
+component--------------------------->template one way binding
+<---------------------- Event binding
+<-----------------> two way binding(handled using ngModel)
+--template reference(#) is way of creating a tag in templete and using that within the template
+--child component data is paased in parent component means conainership
+--input property of component or @input decorator is used take data from out side the component and display in template
+(from parent to child)
+--JS script prefer to work with immutable type for better performance. all the data types are like Number, String etc
+    are immutable. Every time if created creates a new m/y location nad previous one is Grabage collected
+    JS GC is tuned for immutable type
+--Object is called complex type
+--To obtain immutability for complex object always create a copy of object and change.
+    (var obj = Object.assign({}, this.data(data received from outside)))
+--template reference is used to access property and methods of child into parent component
+--document.ready is wait for the UI to get loaded and modify
+--@ViewChild or viewChildren to instantiate child component in raat component.
+-- This approach is used to get reference at intial stage where as template referance get the 
+    child component reference when some action is performed on UI.
+--long running task should not be done in constructor. becuase long running task takkes long to itialize that delays object instantiaION
+--never initailize @properties in ngOnInit bcoz it overides what is initialized in constructor
+--changeDetection is by default enabled in angular
+--ng-content is used for displaying content comming from outside i.e <template> <h1>Hello> </template>
+--ngOnChanges is method and OnChanges in interface
+--@Output decorator helps in event emitting from child to parent component
+--(button) means on click on button
+--service is used to share data b/w components in complex component to structure
+--Pipes helps you format or transform the data.
+--data is pipe is passed using colon (:), if it accepts input
+--to create custome pipe use @pipe decorator and should have name property. your Pipe class must implement transform method of pipe interface.
+-- input parameter's of pipe can be accedd using ...args argument of transform()
+--pipe should always be pure pipe. by default pipe is pure. pure pipe is related to pure function of JS. pure function means
+    using the concept of immutability.
+--In angular whatever is created must be declared in module's declaration property.
+-----------day 6--------------------
+--Model based form
+--create a model(interface) and the instatiate the model in component and use them in the form.
+--Templated form--this is more used when you want to do everything in the template. In TF we dont create model
+--to bind Temp data with comp use use template referance #form1="ngForm" (submit)=logForm(form1.value)
+    and apply ngModel on every elemet. to create group use ngModelGroup=address(just a variable)
+--FormGroup                =====         ngForm
+      |                                     |
+    Form Control                           ngModel
+--ngModel without [()] is used then it is must to give 'name' to your html Element
+--ReactiveForm comes from reactiveFormModule(in this approach validation code is wriiten in ts code)
+--use formBuilder(built in singleton object of angular) to avoid new keyword as angular recomends
+--In angular dependency Injection can be done only through constructor. whenever angular sees a parameter of some type passed in 
+    constructor, 1st it looks for provider internaaly if found that is instatiated
+--validator is a prebuild class of angular, use validator.compose to apply multiple validation
+--Service is a class which is used for sharing data, logic and persisting data. use of services reduces code redundancy.
+--To use service create a service class, use providers: [write service class name] and in constructor of component inject the service 
+  @Inject(ServiceName) private dserv:any or dserv:ServiceName 
+--provider should be declared in root component or module to share same instance of service.
+--when we declare provider(ServiceName) it gets instantiated there. and by using @inject of src:ServiceName in constructor we are just using the instance created in provider.
+--parent cannot emit to child.(in angular 1 there was a method broadcast for this.)
+--rxjs is a set of API that help u implement observer design pattern. and help you implement subscriber and publisher method.
+--subject is class that comes from rsJS and helps you implement observable. and observable is something you can subscribe to from outside by using an observer. 
+--on call of subject.next, observable publishes the notification and subscribed observer will get the notification
+--observer is a function that is waiting for notification.
+--subscribed method has to be removed or unsubscribed in ngOnInit method.
+--online json service(https://jsonplaceholder.typicode.com/posts)
+--httpClient is built in API in angular from angular 5 and above and in included in @angular/common/http
+-- to use http module, we need to install http module npm @angular/http
+--as per angular never make http call in component
+--@Injectable tells angular that whatever is the dependencies required by the class angular is allowed to inject that.
+--jwt authentication is compulsary for restfull .ie session less communitation
+--angular1 supported view routing whereas angular2 supports component routing.
+--Selector of component is optional property.
+--to use router install @angular/router and create a route file(app.routes.ts, routes are array of Router object) 
+    and import RouterModule in your module and configure the route. RouterModule.forRoot(routes)
+--<router-outlet> is area where compone are displayed
+--<a href> by default makes server side call hence we use <a routerLink="/" to route only on client side
+--{ path: '**', component: HomeComponent } means if no route is found display HomeComponent
+--path/:name, putting colon means this varibale is dynamic.
+--ActivatedRoute is object that holds the current url path
+--value can be passed in url but only primitive type can be passed. to paas value in url create a route that will hold the value.
+--component is destroyed as soon as you route to other router. that is component will not consume any m/y once you are navigated to other route.
+    any data held by that component will also be destroyed, hence always pesist data in service
+--ActivatedRoute returns observablea and to apply operator onit use pipe eg. this.route,params.pipe(map(p=>p['ID']))
+--map operator comes from rxjs.
+--To load sencond component in first component without navigating we use children (nested routing)
+--Only Modules can be loaded lazily not component.
+--@angular-router-loader is used for lazy laoding
+--passport js rely on cookies and for that we need session. restfull service works on http protocol and default nature of http in stateless.
+    in stateless there is no session hence no cookie is given(broswer by default attach the coockie but not token).
+    token we need to attach with every request in the header
+--token generation has to be done on server side and has to be stored in local storage of browser and browser will read the token from local storage and attach with request.
+--RouteGuard are always created as custom services and  need to implemented from CanActivate class
+--Angular can just guard or help you verify the routes based on canAuthenticate return type true/false
+--To implement security in angular your server should be secured. Security is server side archetechture.
+--canLoad method is used in lazy laoding
+--canDeactivate to deactive.....you can remove token from local storage. Guard are used to provide user experience like
+--if user is not authenticated redirect to login page
