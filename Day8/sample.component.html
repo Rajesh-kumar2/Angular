@@ -1,0 +1,404 @@
+<div class="page-container" *ngIf="uiData" [formGroup]="sampleForm">
+  <div class="main-grid">
+    <!-- LEFT COLUMN -->
+    <div class="column">
+      <!-- Basic Information -->
+      <mat-card class="info-section">
+        <h2 class="section-title">Sample Regulatory Information</h2>
+        <div class="info-block-container">
+          <div class="info-block">
+            <div class="label">IPO</div>
+            <div class="value">{{ uiData.basicInfo.ipo }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">PRO LEI</div>
+            <div class="value">{{ uiData.basicInfo.proLei }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Division</div>
+            <div class="value">{{ uiData.basicInfo.division }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Corporate Type</div>
+            <div class="value">{{ uiData.basicInfo.corporateType }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">CID</div>
+            <div class="value">{{ uiData.basicInfo.cid }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Entity CID</div>
+            <div class="value">{{ uiData.basicInfo.entityCid }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Sub Division</div>
+            <div class="value">{{ uiData.basicInfo.subDivision }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Customer Class</div>
+            <div class="value">{{ uiData.basicInfo.customerClass }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Customer Status</div>
+            <div class="value">{{ uiData.basicInfo.customerStatus }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Entity CID Name</div>
+            <div class="value">{{ uiData.basicInfo.entityCidName }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">KYC Lead</div>
+            <div class="value">{{ uiData.basicInfo.kycLead }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">CID Fund Manager</div>
+            <div class="value">{{ uiData.basicInfo.cidFundManager }}</div>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- LEI/CICI Information -->
+      <mat-card class="info-section">
+        <h2 class="section-title">LEI/CICI Information</h2>
+        <div class="info-block-container">
+          <div class="info-block">
+            <div class="label">LEI/CICI</div>
+            <div class="value">{{ uiData.leiciInfo.leiciId }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Alternate Source IFID</div>
+            <div class="value">{{ uiData.leiciInfo.alternateSourceIFID }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Entity Status</div>
+            <div class="value">{{ uiData.leiciInfo.entityStatus }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Reg Status</div>
+            <div class="value">{{ uiData.leiciInfo.regStatus }}</div>
+          </div>
+          <div class="info-block wide">
+            <div class="label">LEI Name</div>
+            <div class="value">{{ uiData.leiciInfo.leiName }}</div>
+          </div>
+          <div class="info-block wide">
+            <div class="label">LEI Address</div>
+            <div class="value">{{ uiData.leiciInfo.leiAddress }}</div>
+          </div>
+          <div class="info-block">
+            <div class="label">LEI Country</div>
+            <div class="value">{{ uiData.leiciInfo.leiCountry }}</div>
+          </div>
+        </div>
+      </mat-card>
+
+      <!-- LEI/CICI will affect the following CIDs -->
+      <mat-card class="info-section">
+        <h2 class="section-title">LEI/CICI will affect the following CIDs</h2>
+        <table mat-table [dataSource]="affectedCidsDataSource" class="cid-table">
+          <ng-container matColumnDef="sourceId">
+            <th mat-header-cell *matHeaderCellDef> Source ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.sourceId}} </td>
+          </ng-container>
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Source Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> ALIAS/AKANAME/DBA </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="column">
+      <mat-card class="info-section">
+        <h2 class="section-title">Regulatory Information</h2>
+        <div class="info-block-container">
+          <div class="info-block">
+            <div class="label">Match ID</div>
+            <div class="value">{{ uiData.regulatoryInfo.matchId }}</div>
+          </div>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Sample Rep Determined By</mat-label>
+            <mat-select formControlName="repDeterminedBy">
+              <mat-option *ngFor="let opt of uiData.options.repDeterminedBy" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Sample Person Representation</mat-label>
+            <mat-select formControlName="canadianPersonRep">
+              <mat-option *ngFor="let opt of uiData.options.canadianPersonRep" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card>
+
+      <!-- JURISDICTIONS START HERE -->
+      <mat-card class="info-section">
+        <h3 class="subsection-title">Local Counterparty Jurisdiction(s)</h3>
+        <div class="checkbox-grid" formGroupName="localJurisdictions">
+          <mat-checkbox *ngFor="let prov of uiData.options.provinces" [formControlName]="getControlName(prov)">
+            {{prov}}
+          </mat-checkbox>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width margin-top">
+          <mat-label>Registered to Trade Derivatives</mat-label>
+          <mat-select formControlName="registeredToTrade">
+            <mat-option *ngFor="let opt of uiData.options.tradeDerivatives" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h3 class="subsection-title">Registered Dealer Jurisdiction(s)</h3>
+        <div class="checkbox-grid" formGroupName="registeredDealerJurisdictions">
+          <mat-checkbox *ngFor="let prov of uiData.options.provinces" [formControlName]="getControlName(prov)">
+            {{prov}}
+          </mat-checkbox>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width margin-top">
+          <mat-label>Affiliate of a Responsible Sample Person</mat-label>
+          <mat-select formControlName="affiliateOfResponsiblePerson">
+            <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h3 class="subsection-title">Affiliate of a Responsible Sample Person Jurisdiction(s)</h3>
+        <div class="checkbox-grid" formGroupName="affiliateJurisdictions">
+          <mat-checkbox *ngFor="let prov of uiData.options.provinces" [formControlName]="getControlName(prov)">
+            {{prov}}
+          </mat-checkbox>
+        </div>
+
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width margin-top">
+            <mat-label>Consent to Disclosure to Regulators and Trade Repositories</mat-label>
+            <mat-select formControlName="consentToDisclosure">
+              <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <h3 class="subsection-title">Additional Covenant Re Reporting</h3>
+          <div class="checkbox-grid" formGroupName="additionalCovReReporting">
+            <mat-checkbox *ngFor="let prov of uiData.options.provinces" [formControlName]="getControlName(prov)">
+              {{prov}}
+            </mat-checkbox>
+          </div>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width margin-top">
+            <mat-label>All Reporting Requirements</mat-label>
+            <mat-select formControlName="allReportingRequirements">
+              <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Agreement Re Reporting Party Rules</mat-label>
+            <mat-select formControlName="agreementReReportingPartyRules">
+              <mat-option *ngFor="let opt of uiData.options.reportingRules" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Named Person</mat-label>
+            <mat-select formControlName="namedPerson">
+              <mat-option *ngFor="let opt of uiData.options.namedPerson" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Sample BCR Rule Determined By</mat-label>
+            <mat-select formControlName="canadianBCRRule">
+              <mat-option [value]="'Markit - Sample BCR'">Markit - Sample BCR</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Not Eligible Derivatives Party</mat-label>
+            <mat-select formControlName="notEligibleDerivativesParty">
+              <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="column">
+          <h3 class="subsection-title">Legal name of Derivatives Party</h3>
+          <mat-radio-group class="radio-list" formControlName="legalNameOfDerivativesParty">
+            <mat-radio-button *ngFor="let item of uiData.options.derivativesParty" [value]="item.code">
+              {{ item.text }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="column">
+          <h3 class="subsection-title"> </h3> <!-- Spacer for alignment -->
+          <mat-radio-group class="radio-list" formControlName="legalNameOfDerivativesParty2">
+            <mat-radio-button *ngFor="let item of uiData.options.derivativesParty" [value]="item.code">
+              {{ item.text }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Eligible Derivatives Party Waiver</mat-label>
+            <mat-select formControlName="eligibleDerivativesPartyWaiver">
+              <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Type of Risk</mat-label>
+            <mat-select formControlName="typeOfRisk">
+              <mat-option value="Others">Others</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="column">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nature of Business</mat-label>
+            <input matInput formControlName="natureOfBusiness" placeholder="Enter details...">
+            <mat-hint align="start" class="warning-hint">
+              (Note to Developers - Activate this box only when the option 'Others' is selected from the drop down. For everything else, this can be hidden)
+            </mat-hint>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Type of Dealer</mat-label>
+            <mat-select formControlName="typeOfDealer">
+              <mat-option value="A derivatives dealer, head office/principal business in Canada">A derivatives dealer, head office/principal business in Canada</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <!-- BOTTOM FULL-WIDTH SECTION -->
+  <!--<mat-card class="info-section">
+    <div class="main-grid">
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Consent to Disclosure to Regulators and Trade Repositories</mat-label>
+          <mat-select formControlName="consentToDisclosure">
+            <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <h3 class="subsection-title">Additional Covenant Re Reporting</h3>
+        <div class="checkbox-grid" formGroupName="additionalCovReReporting">
+          <mat-checkbox *ngFor="let prov of uiData.options.provinces" [formControlName]="getControlName(prov)">
+            {{prov}}
+          </mat-checkbox>
+        </div>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>All Reporting Requirements</mat-label>
+          <mat-select formControlName="allReportingRequirements">
+            <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>-->
+
+ <!-- <mat-card class="info-section full-width-section">
+    <div class="main-grid">
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Agreement Re Reporting Party Rules</mat-label>
+          <mat-select formControlName="agreementReReportingPartyRules">
+            <mat-option *ngFor="let opt of uiData.options.reportingRules" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Named Person</mat-label>
+          <mat-select formControlName="namedPerson">
+            <mat-option *ngFor="let opt of uiData.options.namedPerson" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Sample BCR Rule Determined By</mat-label>
+          <mat-select formControlName="canadianBCRRule">
+            <mat-option [value]="'Markit - Sample BCR'">Markit - Sample BCR</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Not Eligible Derivatives Party</mat-label>
+          <mat-select formControlName="notEligibleDerivativesParty">
+            <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>-->
+
+  <!-- DERIVATIVES PARTY SECTION -->
+  <!--<mat-card class="info-section full-width-section">
+    <div class="main-grid">
+      <div class="column">
+        <h3 class="subsection-title">Legal name of Derivatives Party</h3>
+        <mat-radio-group class="radio-list" formControlName="legalNameOfDerivativesParty">
+          <mat-radio-button *ngFor="let item of uiData.options.derivativesParty" [value]="item.code">
+            {{ item.text }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="column">
+        <h3 class="subsection-title"> </h3> &lt;!&ndash; Spacer for alignment &ndash;&gt;
+        <mat-radio-group class="radio-list" formControlName="legalNameOfDerivativesParty2">
+          <mat-radio-button *ngFor="let item of uiData.options.derivativesParty" [value]="item.code">
+            {{ item.text }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </mat-card>-->
+
+<!--  <mat-card class="info-section full-width-section">
+    <div class="main-grid">
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Eligible Derivatives Party Waiver</mat-label>
+          <mat-select formControlName="eligibleDerivativesPartyWaiver">
+            <mat-option *ngFor="let opt of uiData.options.yesNo" [value]="opt">{{opt}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Type of Risk</mat-label>
+          <mat-select formControlName="typeOfRisk">
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nature of Business</mat-label>
+          <input matInput formControlName="natureOfBusiness" placeholder="Enter details...">
+          <mat-hint align="start" class="warning-hint">
+            (Note to Developers - Activate this box only when the option 'Others' is selected from the drop down. For everything else, this can be hidden)
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Type of Dealer</mat-label>
+          <mat-select formControlName="typeOfDealer">
+            <mat-option value="A derivatives dealer, head office/principal business in Canada">A derivatives dealer, head office/principal business in Canada</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card>-->
+
+</div>
+
+<!-- Loading Spinner (optional but good practice) -->
+<div *ngIf="!uiData" class="loading-shade">
+  <!-- You can put a mat-spinner here -->
+  <h2>Loading...</h2>
+</div>
